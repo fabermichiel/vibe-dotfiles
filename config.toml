@@ -1,0 +1,278 @@
+active_model = "mistral-large-latest"
+default_agent = "po"
+system_prompt_id = "po"
+enable_telemetry = false
+outside_workdir = "deny"
+
+applied_migrations = [
+    "bash_read_only_defaults_v1",
+]
+
+[[providers]]
+name = "mistral"
+api_base = "https://api.mistral.ai/v1"
+api_key_env_var = "MISTRAL_API_KEY"
+api_style = "openai"
+backend = "mistral"
+reasoning_field_name = "reasoning_content"
+project_id = ""
+region = ""
+
+[[providers]]
+name = "llamacpp"
+api_base = "http://127.0.0.1:8080/v1"
+api_key_env_var = ""
+api_style = "openai"
+backend = "generic"
+reasoning_field_name = "reasoning_content"
+project_id = ""
+region = ""
+
+[[models]]
+name = "mistral-large-4-0"
+provider = "mistral"
+input_price = 1.5
+output_price = 7.5
+thinking = "high"
+supports_images = true
+
+[[models]]
+name = "mistral-large-latest"
+provider = "mistral"
+input_price = 1.5
+output_price = 7.5
+thinking = "high"
+supports_images = true
+
+[project_context]
+default_commit_count = 5
+timeout_seconds = 2.0
+
+[session_logging]
+save_dir = "/home/michiel/.vibe/logs/session"
+session_prefix = "session"
+enabled = true
+
+[tools.task]
+permission = "ask"
+allowlist = [
+    "explore",
+]
+denylist = []
+
+[tools.web_fetch]
+permission = "ask"
+allowlist = []
+denylist = []
+
+[tools.ask_user_question]
+permission = "always"
+allowlist = []
+denylist = []
+
+[tools.grep]
+permission = "always"
+allowlist = []
+denylist = []
+max_output_bytes = 64000
+default_max_matches = 100
+default_timeout = 60
+exclude_patterns = [
+    ".venv/",
+    "venv/",
+    ".env/",
+    "env/",
+    "node_modules/",
+    ".git/",
+    "__pycache__/",
+    ".pytest_cache/",
+    ".mypy_cache/",
+    ".tox/",
+    ".nox/",
+    ".coverage/",
+    "htmlcov/",
+    "dist/",
+    "build/",
+    ".idea/",
+    ".vscode/",
+    "*.egg-info",
+    "*.pyc",
+    "*.pyo",
+    "*.pyd",
+    ".DS_Store",
+    "Thumbs.db",
+]
+codeignore_file = ".vibeignore"
+
+[tools.read_file]
+permission = "always"
+allowlist = []
+denylist = []
+max_read_bytes = 64000
+
+[tools.bash]
+permission = "ask"
+allowlist = [
+    "awk",
+    "basename",
+    "cat",
+    "cd",
+    "comm",
+    "cut",
+    "date",
+    "diff",
+    "dirname",
+    "du",
+    "echo",
+    "file",
+    "find",
+    "fmt",
+    "fold",
+    "git add",
+    "git commit",
+    "git diff",
+    "git log",
+    "git status",
+    "git show",
+    "git branch",
+    "grep",
+    "head",
+    "join",
+    "less",
+    "ls",
+    "md5sum",
+    "more",
+    "nl",
+    "npm run build",
+    "npm run check",
+    "npm run fix",
+    "npm test",
+    "od",
+    "paste",
+    "pwd",
+    "readlink",
+    "sed",
+    "sha1sum",
+    "sha256sum",
+    "shasum",
+    "sort",
+    "stat",
+    "sum",
+    "tac",
+    "tail",
+    "timeout",
+    "tr",
+    "tree",
+    "uname",
+    "uniq",
+    "vibe-path:exact:/dev/null",
+    "wc",
+    "which",
+    "whoami",
+]
+denylist = [
+    "npm install",
+    "npm i",
+    "npm add",
+    "npm ci",
+    "npm update",
+    "pip",
+    "pip3",
+    "apt",
+    "apt-get",
+    "dnf",
+    "yum",
+    "brew",
+    "snap",
+    "yarn",
+    "pnpm",
+    "bun",
+    "cargo",
+    "curl",
+    "wget",
+    "git push",
+    "git merge",
+    "git rebase",
+    "git reset",
+    "git clean",
+    "git cherry-pick",
+    "git revert",
+    "git tag",
+    "gdb",
+    "pdb",
+    "passwd",
+    "nano",
+    "vim",
+    "vi",
+    "emacs",
+    "bash -i",
+    "sh -i",
+    "zsh -i",
+    "fish -i",
+    "dash -i",
+    "screen",
+    "tmux",
+]
+max_output_bytes = 16000
+denylist_standalone = [
+    "pip",
+    "pip3",
+    "apt",
+    "apt-get",
+    "brew",
+    "yarn",
+    "pnpm",
+    "bun",
+    "sudo",
+    "npx",
+    "curl",
+    "wget",
+    "python",
+    "python3",
+    "ipython",
+    "bash",
+    "sh",
+    "nohup",
+    "vi",
+    "vim",
+    "emacs",
+    "nano",
+    "su",
+]
+
+[tools.write_file]
+permission = "ask"
+allowlist = []
+denylist = []
+max_write_bytes = 64000
+create_parent_dirs = true
+
+[tools.write_edit]
+permission = "ask"
+allowlist = []
+denylist = []
+
+[tools.todo]
+permission = "always"
+allowlist = []
+denylist = []
+max_todos = 100
+
+[tools.web_search]
+permission = "ask"
+allowlist = []
+denylist = []
+timeout = 120
+model = "mistral-vibe-cli-with-tools"
+
+[tools.edit]
+permission = "ask"
+allowlist = []
+denylist = []
+fuzzy_threshold = 0.9
+
+[budget]
+# Global budget limits (per-session defaults; per-agent overrides in agents/*.toml)
+max_input_tokens = 200000
+max_output_tokens = 64000
+max_cost_usd = 20.0

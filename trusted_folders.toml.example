@@ -1,0 +1,9 @@
+# Kopieer dit bestand naar trusted_folders.toml en pas de paden aan
+# naar de mappen op jouw machine die Vibe mag benaderen.
+# trusted_folders.toml wordt NIET in git gezet (zie .gitignore).
+
+trusted = [
+    "/pad/naar/jouw/project",
+    "/pad/naar/ander/project",
+]
+untrusted = []

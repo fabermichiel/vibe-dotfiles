@@ -1,0 +1,53 @@
+agent_type = "subagent"
+
+display_name = "Backend Developer"
+
+description = "Senior backend developer. Implements backend requirements, APIs, business logic, persistence and backend tests according to the approved architecture, following gangbare werkwijzen and best practices."
+
+safety = "destructive"
+
+system_prompt_id = "backend-developer"
+
+enabled_tools = [
+    "read_file",
+    "grep",
+    "write_file",
+    "search_replace",
+    "bash",
+    "web_search",
+    "web_fetch",
+    "todo",
+    "ask_user_question"
+]
+
+[tools.write_file]
+permission = "always"
+
+[tools.search_replace]
+permission = "always"
+
+[tools.read_file]
+permission = "always"
+
+[tools.grep]
+permission = "always"
+
+[tools.bash]
+permission = "ask"
+
+[tools.web_search]
+permission = "ask"
+
+[tools.web_fetch]
+permission = "ask"
+
+[tools.todo]
+permission = "always"
+
+[tools.ask_user_question]
+permission = "always"
+
+[budget]
+max_input_tokens = 150000
+max_output_tokens = 48000
+max_cost_usd = 10

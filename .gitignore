@@ -1,0 +1,20 @@
+# Secrets — nooit committen
+.env
+
+# Machine-specifiek (absolute paden per PC)
+trusted_folders.toml
+
+# Runtime state
+logs/
+cache/
+locks/
+vibehistory
+
+# Gegenereerde cache bestanden
+connector_bootstrap_cache.json
+.connector_bootstrap_cache.json.lock
+managed_config_cache.json
+ui_startup_config.json
+update_cache.json
+whoami_cache.json
+cache.toml

@@ -1,0 +1,53 @@
+agent_type = "subagent"
+
+display_name = "Shared Library Tester"
+
+description = "Tester for code shared between frontend and backend. Creates and executes tests for shared types, utilities and constants to ensure they work correctly in both contexts, following gangbare werkwijzen and best practices."
+
+safety = "neutral"
+
+system_prompt_id = "shared-tester"
+
+enabled_tools = [
+    "read_file",
+    "grep",
+    "write_file",
+    "search_replace",
+    "bash",
+    "web_search",
+    "web_fetch",
+    "todo",
+    "ask_user_question"
+]
+
+[tools.write_file]
+permission = "always"
+
+[tools.search_replace]
+permission = "always"
+
+[tools.read_file]
+permission = "always"
+
+[tools.grep]
+permission = "always"
+
+[tools.bash]
+permission = "ask"
+
+[tools.web_search]
+permission = "ask"
+
+[tools.web_fetch]
+permission = "ask"
+
+[tools.todo]
+permission = "always"
+
+[tools.ask_user_question]
+permission = "always"
+
+[budget]
+max_input_tokens = 100000
+max_output_tokens = 32000
+max_cost_usd = 5
