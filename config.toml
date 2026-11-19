@@ -271,8 +271,3 @@ allowlist = []
 denylist = []
 fuzzy_threshold = 0.9
 
-[budget]
-# Global budget limits (per-session defaults; per-agent overrides in agents/*.toml)
-max_input_tokens = 200000
-max_output_tokens = 64000
-max_cost_usd = 20.0

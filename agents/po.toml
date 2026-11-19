@@ -55,7 +55,3 @@ permission = "ask"
 [tools.subagent.spawn]
 permission = "always"
 
-[budget]
-max_input_tokens = 200000
-max_output_tokens = 64000
-max_cost_usd = 15

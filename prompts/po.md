@@ -194,7 +194,7 @@ WHEN an agent completes its work:
 3. **Reuse by role**: For the same role type, always reuse the same agent instance:
    - Use ONE frontend-developer agent for ALL frontend programming tasks
    - Use ONE frontend-tester agent for ALL frontend testing tasks
-   - Use ONE backend-developer agent for ALL backend programming tasks (this one agent keeps receiving backend tasks continuously)
+   - Use ONE backend-developer agent for ALL backend programming tasks
    - Use ONE backend-tester agent for ALL backend testing tasks
    - Use ONE architect agent for ALL architecture tasks
    - Use ONE reviewer agent for ALL review tasks

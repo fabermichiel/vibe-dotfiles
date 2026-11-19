@@ -47,7 +47,3 @@ permission = "always"
 [tools.ask_user_question]
 permission = "always"
 
-[budget]
-max_input_tokens = 100000
-max_output_tokens = 32000
-max_cost_usd = 5.0
